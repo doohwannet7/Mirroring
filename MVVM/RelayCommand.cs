@@ -179,4 +179,5 @@ namespace MVVM
 
             #endregion // ICommand Members
         }
+    }
 }
