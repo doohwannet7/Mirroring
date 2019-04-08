@@ -38,6 +38,17 @@ namespace Mirroring.ViewModel
             //LeftMainWindow = 0;
             //TopMainWindow = 0;
         }
+
+        /// <summary>
+        /// View Model Async Close
+        /// </summary>
+        public event EventHandler RequestClose;
+        public void OnRequestClose()
+        {
+            EventHandler handler = this.RequestClose;
+            if (handler != null)
+                handler(this, EventArgs.Empty);
+        }
     }
 
 }

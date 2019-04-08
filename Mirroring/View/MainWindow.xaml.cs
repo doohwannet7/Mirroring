@@ -81,5 +81,15 @@ namespace Mirroring
             //SetWindowPos함수는 Window의 형태, 크기, 표시Leve등 Window의 속성을 변경하는 함수
             //SetWindowPos(_rHwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            _mainWindowVM.OnRequestClose();
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }
