@@ -12,31 +12,6 @@
         >
 
     <Window.Resources>
-        <Style x:Key="toggleStyleTrigger" TargetType="ToggleButton">
-            <!--<Setter Property="Background" Value="Yellow"/>-->
-            <Style.Triggers>
-                <!--<DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                </DataTrigger>-->
-                <Trigger Property="IsChecked" Value="True">
-                    <Setter Property="Background" Value="Red"/>
-                </Trigger>
-                <Trigger Property="IsChecked" Value="False">
-                    <Setter Property="Background" Value="Yellow"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <!--<Style x:Key="toggleTrigger" TargetType="ToggleButton">
-            <Style.Triggers>
-                <Trigger Property="IsChecked" Value="True">
-                    <Setter Property="Background" Value="#f44336"/>
-                </Trigger>
-                <Trigger Property="IsChecked" Value="False">
-                    <Setter Property="Background" Value="#f44336"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
         
         
     </Window.Resources>
@@ -53,8 +28,10 @@
 
         <Grid Grid.Row="0" Height="32" HorizontalAlignment="Left" Background="Azure" Grid.ColumnSpan="2" Width="315" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
 
-            <ToggleButton Content="Capture" Margin="0,0,241,0" Style="{StaticResource toggleStyleTrigger}" >
-                <!--<ToggleButton.Style>
+            <ToggleButton Content="Capture" x:Name="btnStart" Margin="0,0,241,0"
+                          Command="{Binding StartCaptureCommand}" IsChecked="{Binding IsToggledOnCapture, Mode=TwoWay}"
+                >
+                <ToggleButton.Style>
                     <Style TargetType="{x:Type ToggleButton}">
                         <Setter Property="Template">
                             <Setter.Value>
@@ -67,16 +44,16 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
-                        --><!--<Style.Triggers>
+                        <Style.Triggers>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background" Value="Red" />
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
-                                <Setter Property="Background" Value="Blue" />
+                                <Setter Property="Background" Value="Gray" />
                             </Trigger>
-                        </Style.Triggers>--><!--
+                        </Style.Triggers>
                     </Style>
-                </ToggleButton.Style>-->
+                </ToggleButton.Style>
             </ToggleButton>
 
 

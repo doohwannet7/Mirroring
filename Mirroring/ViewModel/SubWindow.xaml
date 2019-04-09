@@ -1,0 +1,19 @@
+﻿<Window x:Class="Mirroring.ViewModel.SubWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mirroring.ViewModel"
+        mc:Ignorable="d"
+        Title="SubWindow" Loaded="Window_Loaded"
+        Topmost="True" ShowInTaskbar="False"
+        Height="{Binding SubWindowHeight, Mode=TwoWay}" Width="{Binding SubWindowWidth, Mode=TwoWay}"
+        Closing="Window_Closing" ResizeMode="NoResize" WindowStyle="None" Background="Black"
+        > 
+    <Grid>
+        <Canvas Height="{Binding SubImageHeight, Mode=TwoWay}" Width="{Binding SubImageWidth, Mode=TwoWay}"
+                Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Black">
+            <Image x:Name="imgCapture" Source="{Binding CaptureImage}" Visibility="Visible" Stretch="None"/>
+        </Canvas>
+    </Grid>
+</Window>
