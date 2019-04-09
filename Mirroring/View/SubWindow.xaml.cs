@@ -19,14 +19,30 @@ namespace Mirroring.ViewModel
     /// </summary>
     public partial class SubWindow : Window
     {
-        public SubWindow()
+
+        double oriWidth, oriHeight;
+        MainWindowVM _mainWindowVM = null;
+        public static IntPtr subHandle;
+
+
+        public SubWindow(MainWindowVM mainWindowVM)
         {
             InitializeComponent();
+            _mainWindowVM = mainWindowVM;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Main Window의 
+            oriHeight = _mainWindowVM.SubWindowHeight;
+            oriWidth = _mainWindowVM.SubWindowWidth;
 
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _mainWindowVM.OnRequestClose();
         }
     }
 }

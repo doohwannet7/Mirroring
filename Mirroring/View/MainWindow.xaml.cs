@@ -23,6 +23,7 @@ namespace Mirroring
     public partial class MainWindow : Window
     {
         MainWindowVM _mainWindowVM = null;
+        SubWindow _subWindow;
 
         //MainWindow 크기
         //스크린 캡쳐시 배율계산을 위해 초기 저장
@@ -69,6 +70,15 @@ namespace Mirroring
             //MainWindow View Model Data Context
             _mainWindowVM = new MainWindowVM(this, _rHwnd);
             this.DataContext = _mainWindowVM;
+
+            //SubWindow도 MainWindow View Model을 DataContext 설정
+            _subWindow = new SubWindow(_mainWindowVM);
+            _subWindow.DataContext = _mainWindowVM;
+
+            this.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            _subWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            _subWindow.Show();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

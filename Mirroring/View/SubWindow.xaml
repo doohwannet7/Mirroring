@@ -8,6 +8,7 @@
         Title="SubWindow" Loaded="Window_Loaded"
         Topmost="True" ShowInTaskbar="False"
         Height="{Binding SubWindowHeight, Mode=TwoWay}" Width="{Binding SubWindowWidth, Mode=TwoWay}"
+        Left="{Binding LeftSubWindow, Mode=TwoWay}" Top="{Binding TopSubWindow, Mode=TwoWay}" 
         Closing="Window_Closing" ResizeMode="NoResize" WindowStyle="None" Background="Black"
         > 
     <Grid>
